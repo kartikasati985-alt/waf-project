@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WAF Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>WAF Dashboard</h1>
+  <div class="stats">
+    <p>Total Requests: <strong>{{ stats.total }}</strong></p>
+    <p>Blocked Requests: <strong>{{ stats.blocked }}</strong></p>
+    <p>Allowed Requests: <strong>{{ stats.allowed }}</strong></p>
+  </div>
+
+  <h2>Attack Types</h2>
+  <ul>
+    {% for item in stats.by_attack %}
+      <li>{{ item.attack_type }}: {{ item.count }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Recent Events</h2>
+  <table>
+    <thead>
+      <tr><th>Time</th><th>IP</th><th>Method</th><th>Path</th><th>Status</th><th>Attack</th></tr>
+    </thead>
+    <tbody>
+      {% for e in events %}
+      <tr>
+        <td>{{ e.timestamp }}</td>
+        <td>{{ e.ip }}</td>
+        <td>{{ e.method }}</td>
+        <td>{{ e.path }}</td>
+        <td>{{ e.status }}</td>
+        <td>{{ e.attack_type or '-' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
