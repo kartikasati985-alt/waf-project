@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  color: #1a1a1a;
+}
+
+h1, h2 {
+  color: #0f3d60;
+}
+
+.stats {
+  background: #f0f6fb;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: #f4f4f4;
+}
